@@ -1,25 +1,26 @@
 ﻿int GetRandNum(){
-    int numRand = new Random().Next(100, 1000);
+    int numRand = new Random().Next(-100, 100);
     return numRand;
 }
 
 int[] Array(){
-    int[] array = new int[5];
+    int[] array = new int[8];
     for(int i = 0; i < array.Length; i++){
         array[i] = GetRandNum();
     }
     return array;
 }
 
-int GetNumEvenNumbers(int[] array){
-    int count = 0;
-    foreach(int el in array){
-    count += (el%2 == 0) ? 1: 0;
+int SumOddNum(int[] array){
+    int SumOdd = 0;
+    for(int i = 1; i <= array.Length; i+=2){
+        SumOdd += array[i];
     }
-    return count;
+    return SumOdd;
 }
 
 int rand = GetRandNum();
 int[] ArrayNum = Array();
-int EvenCount = GetNumEvenNumbers(ArrayNum);
-Console.WriteLine(EvenCount);
+int SumOddNumber = SumOddNum(ArrayNum);
+Console.WriteLine($"[{string.Join(", ", ArrayNum)}]");
+Console.WriteLine($"Sum odd numbers => {SumOddNumber}");
